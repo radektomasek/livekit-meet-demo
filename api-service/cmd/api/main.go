@@ -25,8 +25,8 @@ type config struct {
 
 type application struct {
 	config            config
-	logger            *slog.Logger
 	models            data.Models
+	logger            *slog.Logger
 	liveKitRoomClient *lksdk.RoomServiceClient
 }
 

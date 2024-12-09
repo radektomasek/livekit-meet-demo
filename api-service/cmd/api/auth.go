@@ -9,14 +9,16 @@ import (
 )
 
 func (app *application) getJoinToken(w http.ResponseWriter, r *http.Request) {
-	roomName := r.URL.Query().Get("roomName")
-	if roomName == "" {
-		app.badRequestResponse(w, r, errors.New("query string 'roomName' is missing"))
+	roomName, err := app.readUrlParamField(r, "roomName")
+	if err != nil {
+		app.badRequestResponse(w, r, err)
+		return
 	}
 
 	identity := r.URL.Query().Get("identity")
 	if identity == "" {
 		app.badRequestResponse(w, r, errors.New("query string 'identity' is missing"))
+		return
 	}
 
 	at := auth.NewAccessToken(app.config.liveKitApiKey, app.config.liveKitApiSecret)
@@ -35,7 +37,8 @@ func (app *application) getJoinToken(w http.ResponseWriter, r *http.Request) {
 
 	accessToken, err := at.ToJWT()
 	if err != nil {
-		app.badRequestResponse(w, r, errors.New("problem of getting a auth token for livekit"))
+		app.badRequestResponse(w, r, errors.New("problem of getting an auth token for specified room"))
+		return
 	}
 
 	err = app.writeJSON(w, http.StatusCreated, envelope{"auth": data.Auth{AccessToken: accessToken}}, headers)

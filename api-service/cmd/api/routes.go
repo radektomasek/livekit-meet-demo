@@ -10,9 +10,9 @@ func (app *application) routes() http.Handler {
 	router := httprouter.New()
 
 	router.HandlerFunc(http.MethodGet, "/v1/healthcheck", app.healthCheckHandler)
-	router.HandlerFunc(http.MethodGet, "/v1/auth/token", app.getJoinToken)
-	router.HandlerFunc(http.MethodPost, "/v1/room", app.createRoom)
-	router.HandlerFunc(http.MethodGet, "/v1/room", app.listRooms)
+	router.HandlerFunc(http.MethodPost, "/v1/rooms", app.createRoom)
+	router.HandlerFunc(http.MethodGet, "/v1/rooms", app.listRooms)
+	router.HandlerFunc(http.MethodGet, "/v1/rooms/:roomName/token", app.getJoinToken)
 
 	return app.recoverPanic(cors.New(cors.Options{
 		AllowedOrigins: []string{"http://localhost:5173", "https://meet.digitalfun.space"},
