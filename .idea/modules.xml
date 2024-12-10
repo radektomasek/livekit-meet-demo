@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/WebstormProjects/kanban-task-management/.idea/kanban-task-management.iml" filepath="$USER_HOME$/WebstormProjects/kanban-task-management/.idea/kanban-task-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/livekit-meet-demo.iml" filepath="$PROJECT_DIR$/.idea/livekit-meet-demo.iml" />
     </modules>
   </component>
