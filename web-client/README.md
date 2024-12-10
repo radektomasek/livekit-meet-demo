@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# LiveKit Meet Demo (Web Client)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This section explains the frontend part of the LiveKit Meet project in more detail.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project is set up in a relatively simple way. Most of the boilerplate code was generated using the **Vite** + React/TypeScript template.
 
-## Expanding the ESLint configuration
+The core logic resides in the `src` directory, organized as follows:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **/routes** - Contains the basic routing for the **Rooms Home**, **Room Detail** and **Meeting Session** pages.
+- **/services** - Implements the API endpoints and handles **TanStack Query** mutations and queries.
+- **/types** - Contains **Zod** schema definitions for data validation.
+- **/views** - Houses the implementation of the Rooms Home Page, Rooms Detail Page, and Meeting Session.
+- **main.tsx** - The entry point for the application.
 
-- Configure the top-level `parserOptions` property like this:
+## Running the App Locally
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+To set up and run the app locally, follow the guidelines below.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Environment Variables
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+The frontend requires two environment variables:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- `VITE_API_BASE_URL`: The base URL of the backend API. For local development, this should be set to `http://localhost:4000` or the production `https://api.digitalfun.space/v1`.
+- `VITE_LIVEKIT_WEBSOCKET_URL`: The client-side websocket URL provided by **LiveKit**. Register an account at [LiveKit](https://livekit.io) to get one.
+
+> **Note**: The **VITE** prefix is required by the **Vite** bundler to recognize these environment variables.
+
+### Running the App
+
+1. Clone the repository to your local machine.
+2. Install dependencies by running `npm install` from the project root.
+3. Make sure your environment variables are correctly set in the `.env` file.
+4. Start the development server with `npm run dev`.
+
+## Conclusion
+
+This **web-client** app is a modern **React** app built using **Vite** for fast builds and hot-reloading during development. After setting up the environment variables and installing dependencies, the app should run seamlessly on your local machine.
