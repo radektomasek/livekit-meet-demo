@@ -80,8 +80,7 @@ comfortable with non-JS ecosystem.
 The implementation was very straightforward. I started with the integration of the [Rooms Service Client]
 (https://docs.livekit.io/home/server/managing-rooms) and had first two endpoints ready relatively quickly.
 
-It took me a bit longer to study the details how to properly integrate the [Token Generation API](https://docs.
-livekit.io/home/server/generating-tokens), what is the relation between the **LiveKit websocket resource** and the 
+It took me a bit longer to study the details how to properly integrate the [Token Generation API](https://docs.livekit.io/home/server/generating-tokens), what is the relation between the **LiveKit websocket resource** and the 
 **hosted infrastructure**, but once understood the flow, the rest of the implementation process was relatively seamless.
 
 On the frontend side, I used the modern React stack with [@livekit/components-react](https://www.npmjs.com/package/@livekit/components-react) to quickly prototype a single page app that is able to 
