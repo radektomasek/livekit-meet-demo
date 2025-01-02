@@ -22,7 +22,7 @@ To set up and run the app locally, follow the guidelines below.
 
 The frontend requires two environment variables:
 
-- `VITE_API_BASE_URL`: The base URL of the backend API. For local development, this should be set to `http://localhost:4000` or the production `https://api.digitalfun.space/v1`.
+- `VITE_API_BASE_URL`: The base URL of the backend API. For local development, this should be set to `http://localhost:4000`.
 - `VITE_LIVEKIT_WEBSOCKET_URL`: The client-side websocket URL provided by **LiveKit**. Register an account at [LiveKit](https://livekit.io) to get one.
 
 > **Note**: The **VITE** prefix is required by the **Vite** bundler to recognize these environment variables.

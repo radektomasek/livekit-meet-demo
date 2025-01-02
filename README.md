@@ -3,12 +3,6 @@
 This project integrates simple flow provided by LiveKit implementing a Video conference capabalities. It uses a Gokang Server SDK on 
 the server and React/Typescript ecosystem on the frontend.
 
-## Deployed Version
-
-The deployed links related to this project are the following:
-
-- Frontend application: [https://meet.digitalfun.space](https://meet.digitalfun.space)
-- Server API: [https://api.digitalfun.space](https://api.digitalfun.space)
 
 ## Preview
 
@@ -55,17 +49,12 @@ This section quickly summarizes the important bits for the testing purposes:
 
 - The application is split into two services: the [API service](./api-service) and the [Web Client](./web-client). 
   They are implemented in **Golang** and **TypeScript**, following modern best practices and principles.
-- The system is deployed and accessible via [https://meet.digitalfun.space](https://digitalfun.space), with the API 
-  running at [https://api.digitalfun.space](https://api.digitalfun.space).
-- The production environment is hosted on a [DigitalOcean Droplet](https://www.digitalocean.com/products/droplets), with [Caddy](https://caddyserver.com/) used as a 
-  reverse proxy for its efficiency and ease of setup.
 
 ### Testing Use Cases
 
 - The app uses [Rooms Service Client](https://docs.livekit.io/home/server/managing-rooms) to create and list 
   available rooms.
-- If you [the app](https://digitalfun.space), you can easily create a new room that will be valid for a short period 
-  of time.
+- You can easily create a new room that will be valid for a short period of time.
 - Once the room is created, you can click on the detail of that resource that will show some basics metadata.
 - Most importantly, you can create your alias and join a meeting session.
 - A basic exit callback is implemented, therefore after the call is done, the app redirects to the `/rooms` list.
